@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   has_rich_text :body
   #belongs_to :user
 
+  after_create :send_notifications
+
   def send_notifications
     user = user_mentions # - [user]
 
